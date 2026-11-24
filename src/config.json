@@ -1,9 +1,0 @@
-{
-  "_comment": "PLACEHOLDERS — replace with Omega's real details, then run: node build.mjs",
-  "company": "Omega Incorporated",
-  "siteUrl": "https://www.omegaincorporated.com",
-  "email": "info@omegaincorporated.com",
-  "phone": "(555) 014-2789",
-  "location": "Remote-first · Nationwide",
-  "formEndpoint": "https://formspree.io/f/YOUR_FORM_ID"
-}
