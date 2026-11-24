@@ -1,0 +1,74 @@
+<div class="split split-contact">
+  <aside class="contact-aside">
+    <ul class="contact-list">
+      <li class="card card-row reveal"><span class="icon-tile">{{icon:Mail}}</span><div><span class="label">Email</span><a href="mailto:{{email}}">{{email}}</a></div></li>
+      <li class="card card-row reveal"><span class="icon-tile">{{icon:Phone}}</span><div><span class="label">Phone</span><a href="tel:{{phoneHref}}">{{phone}}</a></div></li>
+      <li class="card card-row reveal"><span class="icon-tile">{{icon:MapPin}}</span><div><span class="label">Office</span><span>{{location}}</span></div></li>
+    </ul>
+    <div class="card reveal">
+      <h3 class="card-title-sm">Response time</h3>
+      <p>Most inquiries are answered within one business day.</p>
+    </div>
+    <div class="card card-alert reveal">
+      <h3 class="card-title-sm">{{icon:ShieldAlert}} Active security incident?</h3>
+      <p>Don't wait on the form — call us directly for urgent response.</p>
+      <a class="btn btn-primary btn-sm" href="tel:{{phoneHref}}">{{icon:Phone}} Call {{phone}}</a>
+    </div>
+  </aside>
+
+  <form class="card contact-form reveal" action="{{formEndpoint}}" method="POST" novalidate data-contact-form data-email="{{email}}">
+    <div class="form-summary" role="alert" tabindex="-1" hidden data-form-summary></div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" placeholder="Jordan Rivera">
+        <p class="field-error" id="f-name-err" data-error-for="name"></p>
+      </div>
+      <div class="field">
+        <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err" placeholder="jordan@example.com">
+        <p class="field-error" id="f-email-err" data-error-for="email"></p>
+      </div>
+      <div class="field field-full">
+        <label for="f-interest">I'm interested in</label>
+        <div class="select-wrap">
+          <select id="f-interest" name="interest">
+            <option value="services">IT / Cybersecurity Services</option>
+            <option value="training">Training &amp; Awareness</option>
+            <option value="fellowship">Apply to Fellowship</option>
+            <option value="volunteer">Volunteer to Teach / Mentor</option>
+            <option value="general">General Inquiry</option>
+          </select>
+          {{icon:ChevronDown}}
+        </div>
+      </div>
+      <div class="field field-full">
+        <label for="f-org">Organization <span class="optional">(optional)</span></label>
+        <input id="f-org" name="organization" type="text" autocomplete="organization" placeholder="Company or school">
+      </div>
+      <div class="field field-full">
+        <label for="f-msg">Message <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="f-msg" name="message" rows="5" required minlength="10" aria-describedby="f-msg-hint f-msg-err" placeholder="Tell us a bit about what you're looking for…"></textarea>
+        <p class="field-hint" id="f-msg-hint" data-hint>For fellowship applications, tell us your school/program and why you're interested.</p>
+        <p class="field-error" id="f-msg-err" data-error-for="message"></p>
+      </div>
+    </div>
+
+    <!-- spam trap: real people never see or fill this -->
+    <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave blank</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="_subject" value="New website inquiry — {{company}}" data-subject>
+
+    <button class="btn btn-primary btn-block" type="submit" data-submit>
+      <span data-submit-label>Send Message</span>{{icon:Send}}{{icon:LoaderCircle spin}}
+    </button>
+    <p class="form-privacy">We only use your details to reply to your inquiry.</p>
+
+    <div class="form-success" hidden tabindex="-1" data-form-success>
+      <span class="icon-tile icon-tile-lg">{{icon:CircleCheck}}</span>
+      <h3>Message sent</h3>
+      <p>Thanks for reaching out — we'll get back to you within one business day.</p>
+      <button class="btn btn-ghost" type="button" data-form-reset>Send another message</button>
+    </div>
+  </form>
+</div>
